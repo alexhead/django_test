@@ -1,5 +1,11 @@
-{{ object.title }}
+<html>
+<body>
+{{ object.title }}<br>
 
-{{ object.text }}
+{{ object.text }}<br>
 
-{{ object.pub_date }}
+{{ object.pub_date }}<br>
+
+{% url "news:detail" pk=object.pk %}
+</body>
+</html>
