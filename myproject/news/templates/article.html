@@ -1,11 +1,14 @@
-<html>
-<body>
-{{ object.title }}<br>
+{% extends "base.html" %}
 
-{{ object.text }}<br>
+{% block title %} {{ article.title }} {% endblock %}
 
-{{ object.pub_date }}<br>
+{% block content %}
 
-{% url "news:detail" pk=object.pk %}
-</body>
-</html>
+	{{ article.text }}<br>
+
+	{{ article.pub_date|date: "Y - m - d" }}<br>
+
+	{% url "news:detail" pk=article.pk %}
+
+{% endblock %}
+

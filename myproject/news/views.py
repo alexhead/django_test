@@ -9,6 +9,7 @@ from .models import Article
 class NewsView(DetailView):
     model = Article
     template_name = 'article.html'
+    context_object_name = 'article'
 
 def show_news(request, news_id=0, cat_id=0):
     
