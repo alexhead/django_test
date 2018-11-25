@@ -10,6 +10,6 @@ class NewsView(DetailView):
     model = Article
     template_name = 'article.html'
 
-def show_news(request, news_id=0):
+def show_news(request, news_id=0, cat_id=0):
     
     return render(request, 'blabla.html', {})
