@@ -12,4 +12,4 @@ class NewsView(DetailView):
 
 def show_news(request, news_id=0, cat_id=0):
     
-    return render(request, 'blabla.html', {})
+    return render(request, 'blabla.html', {"news_id": news_id})
