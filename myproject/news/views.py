@@ -12,4 +12,4 @@ class NewsView(DetailView):
 
 def show_news(request, news_id=0):
     
-    return HttpResponse(u'Hello world, {}'.format(news_id))
+    return render(request, 'blabla.html', {})
