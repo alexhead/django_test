@@ -6,7 +6,7 @@
 
 	{{ article.text }}<br>
 
-	{{ article.pub_date|date: "Y - m - d" }}<br>
+	{{ article.pub_date|date:"Y-m-d" }}<br>
 
 	{% url "news:detail" pk=article.pk %}
 
