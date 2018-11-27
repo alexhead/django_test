@@ -9,6 +9,7 @@ class Quest(models.Model):
     text = models.TextField()
     pub_date = models.DateField(auto_now_add = True)
     sub_text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add = True)
     
     def __unicode__(self):
         return self.title

@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.views.generic import DetailView
+from django.views.generic import ListView
 from .models import Quest 
 
 class QuestView(DetailView):
@@ -12,6 +13,6 @@ class QuestView(DetailView):
     context_object_name = 'quest'
 
 class QuestList(ListView):
-	model = Quest
-	template_name = 'quest_list.html'
+    model = Quest
+    template_name = 'quest_list.html'
 	
