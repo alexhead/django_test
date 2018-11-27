@@ -6,7 +6,12 @@ from django.shortcuts import HttpResponse
 from django.views.generic import DetailView
 from .models import Quest 
 
-class QuestionsView(DetailView):
+class QuestView(DetailView):
     model = Quest
-    template_name = 'quest.html'
+    template_name = 'quest_detail.html'
     context_object_name = 'quest'
+
+class QuestList(ListView):
+	model = Quest
+	template_name = 'quest_list.html'
+	

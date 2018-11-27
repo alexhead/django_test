@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+{% for quest in object_list %} 
+	<b>{{ quest.created_at }}</b> <a href="{% url "quest:quest_detail" pk=quest.pk %}">
+	<br/> 
+
+
+</body>
+</html>>
