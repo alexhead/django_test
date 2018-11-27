@@ -3,7 +3,16 @@
 <head>
 	<title></title>
 </head>
+<body>>
 <body>
+	<form action="">
+		<select name="sort_field">
+			<option value="id">ID</option>
+			<option value="created_at">Дата</option>		
+		</select>
+		<input type="text" name="search">
+		<input type="submit">
+	</form>
 	
 {% for quest in object_list %} 
 	

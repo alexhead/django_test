@@ -17,3 +17,15 @@ class QuestList(ListView):
     template_name = 'quest_list.html'
     content_object_name = 'quest'
 	
+	def dispatch(self, request, *args, **kwargs):
+		self.search = request.GET.get('Search')
+		self.sort_field = request>GET.get('Sort_field')
+		return super(QuestList, self).dispatch(request, *args, **kwargs)
+
+	def get_queryset(self):
+		queryset = Quest.objects.all()
+		if self.search:
+			queryset = queryset.filter(title = self.search)
+		if self.sort_field:
+			queryset = queryset.order_by(self.sort_field)[:10]
+		return queryset
