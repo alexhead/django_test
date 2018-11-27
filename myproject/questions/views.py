@@ -15,4 +15,5 @@ class QuestView(DetailView):
 class QuestList(ListView):
     model = Quest
     template_name = 'quest_list.html'
+    content_object_name = 'quest'
 	

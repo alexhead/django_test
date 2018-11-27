@@ -4,11 +4,14 @@
 	<title></title>
 </head>
 <body>
-
+	
 {% for quest in object_list %} 
-	<b>{{ quest.created_at }}</b> <a href="{% url "quest:quest_detail" pk=quest.pk %}">
-	<br/> 
+	
+<a href="{% url "questions:quest_detail" pk=quest.pk %}"> <b> {{ quest.title }} </b>
+<br>
+{% endfor %}
+	
 
 
 </body>
-</html>>
+</html>
