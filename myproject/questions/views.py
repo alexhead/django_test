@@ -27,5 +27,5 @@ class QuestList(ListView):
 	if self.search:
         	queryset = queryset.filter(title = self.search)
 	if self.sort_field:
-		queryset = queryset.order_by(self.sort_field)[:10]
+		queryset = queryset.order_by(self.sort_field)[:3]
 	return queryset
