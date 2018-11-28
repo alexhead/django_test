@@ -25,11 +25,11 @@ class QuestList(ListView):
 
     def get_queryset(self):
         queryset = Quest.objects.all()
-	    if self.form.cleaned_data.get('Search'):
-            queryset = queryset.filter(title = self.form.cleaned_data['Search'])
-	    if self.sort_field:
-		    queryset = queryset.order_by(self.form.cleaned_data['Sort_field'])[:3]
-	    return queryset
+        if self.form.cleaned_data.get('search'):
+            queryset = queryset.filter(title = self.form.cleaned_data['search'])
+        if self.form.cleaned_data.get('sort_field'):
+	    queryset = queryset.order_by(self.form.cleaned_data['sort_field'])[:3]
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super(QuestList, self).get_context_data(**kwargs)
