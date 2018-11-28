@@ -5,7 +5,8 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.views.generic import DetailView
 from django.views.generic import ListView
-from .models import Quest 
+from .models import Quest
+from .forms import QuestListForm 
 
 class QuestView(DetailView):
     model = Quest
@@ -18,14 +19,19 @@ class QuestList(ListView):
     content_object_name = 'quest'
 
     def dispatch(self, request, *args, **kwargs):
-        self.search = request.GET.get('Search')
-        self.sort_field = request.GET.get('Sort_field')
+        self.form = QuestListForm(request.GET)
+        self.form.is_valid()
         return super(QuestList, self).dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
         queryset = Quest.objects.all()
-	if self.search:
-        	queryset = queryset.filter(title = self.search)
-	if self.sort_field:
-		queryset = queryset.order_by(self.sort_field)[:3]
-	return queryset
+	    if self.form.cleaned_data.get('Search'):
+            queryset = queryset.filter(title = self.form.cleaned_data['Search'])
+	    if self.sort_field:
+		    queryset = queryset.order_by(self.form.cleaned_data['Sort_field'])[:3]
+	    return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(QuestList, self).get_context_data(**kwargs)
+        context['form'] = self.form
+        return context

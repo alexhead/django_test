@@ -6,11 +6,9 @@
 <body>
 <body>
 	<form action="">
-		<select name="Sort_field">
-			<option value="id">ID</option>
-			<option value="created_at">Дата</option>		
-		</select>
-		<input type="text" name="Search">
+		{{ form.search }}
+		{{ form.sort_field }}
+		{{ form.errors }}
 		<input type="submit">
 	</form>
 	
