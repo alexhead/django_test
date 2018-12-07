@@ -13,12 +13,12 @@ class QuestView(DetailView):
     model = Quest
     template_name = 'quest_detail.html'
     content_object_name = 'quest'
-class QuestView(CreateView):
+class CreateQuest(CreateView):
     model = Quest
     template_name = 'create.html'
     fields = ('title', 'text', 'sub_text')
     def get_success_url(self):
-        return resolve_url('questions:quest_detail', pk=self.object.pk)
+        return resolve_url('questions:quest_detail', pk=5)
     
 
 class QuestList(ListView):

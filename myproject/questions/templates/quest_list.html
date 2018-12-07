@@ -18,8 +18,18 @@
 <br>
 {% endfor %}
 
-<a href="{% url "questions:create" %}"> <b> <h2> Создать вопрос </h2>> </b>
+<a href="create"> <b> <h2> Создать вопрос </h2>> </b>
 	
+<form action="" method="post">
+	{% csrf_token %}
+	{% for field in form%}
+		{{ field.errors }}
+		{{ field.label_teag }}
+		{{ field }}
+	{% endfor %}
+        {{ qform }}
+        <input type="submit">
+</form>
 
 
 </body>
