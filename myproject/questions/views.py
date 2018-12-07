@@ -5,21 +5,21 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse
 from django.shortcuts import resolve_url
 from django.views.generic import DetailView
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from .models import Quest
 from .forms import QuestListForm, QuestForm 
 
 class QuestView(DetailView):
     model = Quest
     template_name = 'quest_detail.html'
-    fields = ('title', 'text', 'sub_text')
-    def get_success_url(self):
-        return resolve_url('questions:quest_detail', pk=self.object.pk)
-
+    content_object_name = 'quest'
 class QuestView(CreateView):
     model = Quest
     template_name = 'create.html'
-    context_object_name = 'create'
+    fields = ('title', 'text', 'sub_text')
+    def get_success_url(self):
+        return resolve_url('questions:quest_detail', pk=self.object.pk)
+    
 
 class QuestList(ListView):
     model = Quest
